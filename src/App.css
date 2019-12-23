@@ -20,3 +20,16 @@
 .App-link {
   color: #09d3ac;
 }
+
+@media (max-width: 64em) {
+  .details {
+    max-height: 40vh;
+    overflow: auto;
+  }
+}
+
+.details {
+  height: 85vh;
+  width: 100%;
+  overflow: scroll;
+}

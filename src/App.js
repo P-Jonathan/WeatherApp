@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import React, {Component} from 'react';
+import LocationListContainer from "./containers/LocationListContainer";
+import ForecastExtendedContainer from "./containers/ForecastExtendedContainer";
+import {Grid, Col, Row} from 'react-flexbox-grid';
+import {AppBar, Typography, Toolbar} from '@material-ui/core';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const cities = [
+  "Buenos Aires,ar",
+  "Washington,us",
+  "Sydney,au",
+  "Tokyo,jp"
+];
+
+class App extends Component {
+  render() {
+    return (
+      <Grid className="App">
+        <Row>
+          <AppBar position='sticky'>
+            <Toolbar>
+              <Typography viariant='title' color='inherit'>
+                WeatherApp
+              </Typography>
+            </Toolbar>
+          </AppBar>
+        </Row>
+        <Row>
+          <Col xs={12} md={6}>
+            <LocationListContainer cities={cities}/>
+          </Col>
+          <Col xs={12} md={6}>
+            <div className='details'>
+              <ForecastExtendedContainer/>
+            </div>
+          </Col>
+        </Row>
+      </Grid>
+    );
+  }
 }
 
 export default App;

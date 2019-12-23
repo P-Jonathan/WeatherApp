@@ -1,0 +1,13 @@
+.forecastCont {
+    min-height: 100vh;
+}
+
+.forecast-title {
+    color: #313a74;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: dashed #282c34 1px;
+    border-radius: 10px;
+    width: 96%;
+}
