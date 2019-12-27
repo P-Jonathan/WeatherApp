@@ -22,7 +22,7 @@ export const cities = (state = {}, action) => {
     case SET_FORECAST_DATA: {
       const {city, forecastData} = action.payload;
       const data = state[city];
-      return {...state, [city]: {...data, forecastData}};
+      return {...state, [city]: {...data, forecastData, forecastDataDate: new Date()}};
     }
     case GET_WEATHER_CITY: {
       const city = action.payload;
@@ -42,6 +42,11 @@ export const cities = (state = {}, action) => {
 export const getForecastDataFromCities = createSelector(
   (state, city) => state[city] && state[city].forecastData,
   forecastData => forecastData
+);
+
+export const getForecastDataDateFromCities = createSelector(
+  (state, city) => state[city] && state[city].forecastDataDate,
+  forecastDataDate => forecastDataDate
 );
 
 export const getWeatherCities = createSelector(

@@ -2,6 +2,7 @@ import requireForecastData from "../services/requireForecastData";
 import transformForecast from "../services/transformForecast";
 import requireWeatherData from "../services/requireWeatherData";
 import transformWeather from "../services/transformWeather";
+import {getForecastDataDateFromCities} from "../reducers";
 
 export const SET_FORECAST_DATA = 'SET_FORECAST_DATA';
 export const SET_WEATHER_CITY = 'SET_WEATHER_CITY';
@@ -15,8 +16,16 @@ export const setWeatherCity = payload => ({type: SET_WEATHER_CITY, payload});
 export const setCity = payload => ({type: SET_CITY, payload});
 
 export const setSelectedCity = payload => {
-  return dispatch => {
+  return (dispatch, getState) => {
     dispatch(setCity(payload));
+
+    const state = getState();
+    const date = getForecastDataDateFromCities(state);
+    const nowDate = new Date();
+
+    if (date && (nowDate - date) < 60 * 1000)
+      return;
+
     return requireForecastData(payload)
       .then(data => {
         const forecastData = transformForecast(data);

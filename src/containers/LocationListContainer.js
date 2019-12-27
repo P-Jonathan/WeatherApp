@@ -1,18 +1,20 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import PropTypes from 'prop-types';
-import {getWeatherCities} from "../reducers";
+// import {bindActionCreators} from "redux";
+// import * as actions from "../actions";
+import {getCity, getWeatherCities} from "../reducers";
 import {setSelectedCity, setWeather} from "../actions";
 import LocationList from "./../components/LocationList";
 
 class LocationListContainer extends Component {
   componentDidMount() {
-    const {setWeather, cities} = this.props;
+    const {setWeather, setCity, cities, city} = this.props;
     setWeather(cities);
+    setCity(city);
   }
 
   handleSelection = city => {
-    console.log("Se hizo click en: ", city);
     this.props.setCity(city);
   };
 
@@ -24,14 +26,22 @@ class LocationListContainer extends Component {
 }
 
 LocationListContainer.propTypes = {
-  setCity: PropTypes.func.isRequired,
+  city: PropTypes.string,
   cities: PropTypes.array.isRequired,
-  citiesWeather: PropTypes.array.isRequired
+  setCity: PropTypes.func.isRequired,
+  setWeather: PropTypes.func.isRequired,
+  citiesWeather: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = state => ({
-  citiesWeather: getWeatherCities(state)
+  citiesWeather: getWeatherCities(state),
+  city: getCity(state)
 });
+
+/*
+// noinspection JSCheckFunctionSignatures
+const mapDispatchToPropsActions = dispatch => bindActionCreators(actions, dispatch);
+*/
 
 const mapDispatchToPropsActions = dispatch => ({
   setCity: city => dispatch(setSelectedCity(city)),
