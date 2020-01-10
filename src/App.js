@@ -7,9 +7,28 @@ import {AppBar, Typography, Toolbar} from '@material-ui/core';
 
 const cities = [
   "Buenos Aires,ar",
-  "Washington,us",
-  "Sydney,au",
-  "Tokyo,jp"
+  "San Fernando del Valle de Catamarca,ar",
+  "Resistencia,ar",
+  "Rawson,ar",
+  "Cordoba,ar",
+  "Corrientes,ar",
+  "Parana,ar",
+  "Formosa,ar",
+  "San Salvador de Jujuy,ar",
+  "Santa Rosa,ar",
+  "La Rioja,ar",
+  "Mendoza,ar",
+  "Posadas,ar",
+  "Neuquen,ar",
+  "Viedma,ar",
+  "Salta,ar",
+  "San Juan,ar",
+  "San Luis,ar",
+  "Rio Gallegos,ar",
+  "Santa Fe de la Vera Cruz,ar",
+  "Santiago del Estero,ar",
+  "Ushuaia,ar",
+  "San Miguel de Tucuman,ar",
 ];
 
 class App extends Component {
