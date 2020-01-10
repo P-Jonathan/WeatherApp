@@ -23,7 +23,7 @@ export const setSelectedCity = payload => {
     const date = getForecastDataDateFromCities(state);
     const nowDate = new Date();
 
-    if (date && (nowDate - date) < 60 * 1000)
+    if (date && (nowDate - date) < 5 * 60 * 1000)
       return;
 
     return requireForecastData(payload)
