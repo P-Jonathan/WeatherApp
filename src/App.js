@@ -39,7 +39,7 @@ class App extends Component {
           <AppBar position='sticky'>
             <Toolbar>
               <Typography viariant='title' color='inherit'>
-                WeatherApp
+                Clima de las principales ciudades de Argentina
               </Typography>
             </Toolbar>
           </AppBar>
