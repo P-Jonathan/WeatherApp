@@ -10,6 +10,7 @@
 .locationCont, h1 {
     padding-bottom: 5px;
     white-space: nowrap;
+    overflow: auto;
 }
 
 .weatherLocationCont {
